@@ -1,0 +1,66 @@
+
+yum update && yum upgrade
+
+yum install epel-release
+
+yum groupinstall "X Window system"
+
+yum groupinstall "KDE Plasma Workspaces"
+
+yum install kate okular dolphin konsole
+
+yum install firefox
+
+yum install wget
+
+systemctl get-default
+
+yum groupinstall "Minimal Install"
+
+yum groupinstall "Xfce"
+
+yum install xfce4-whiskermenu-plugin
+
+yum install p7zip
+
+yum install ntfs-3g
+
+yum install vlc
+
+yum install xorg-x11-server-Xorg xorg-x11-drv-{evdev,intel,synaptics} xorg-x11-xinit xterm
+
+yum install terminus-fonts
+
+yum groupinstall 'Development Tools' SDL
+
+yum install make automake cmake gcc gcc-c++ kernel-devel kernel-headers dkms
+gcc --version
+
+yum install git libX11-devel libXft-devel libXinerama-devel
+
+yum install java
+java -version
+
+yum install libstdc++.i686
+
+yum install google-noto-sans-fonts.noarch 
+yum install google-noto-serif-fonts.noarch 
+yum install google-noto-sans-ui-fonts.noarch 
+
+yum install net-tools
+ip addr show
+
+yum install openssh openssh-server openssh-clients openssl-libs
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.orig
+Port 22
+PermitRootLogin yes
+
+systemctl restart sshd.service
+
+SSH -V
+ssh -v
+
+yum install nmap
+nmap 127.0.01
+
+
