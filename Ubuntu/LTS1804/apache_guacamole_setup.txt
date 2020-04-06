@@ -1,0 +1,39 @@
+
+
+https://wiki.debian.org/Guacamole
+
+https://github.com/MysticRyuujin/guac-install
+
+https://kifarunix.com/how-to-setup-guacamole-web-based-remote-desktop-access-tool-on-ubuntu-18-04/
+
+https://kifarunix.com/configure-guacamole-ssl-tls-with-nginx-reverse-proxy/
+
+
+sudo apt install -y tomcat8 mariadb-server
+
+sudo apt install -y gcc-6 g++-6 libcairo2-dev libjpeg-turbo8-dev libpng-dev
+sudo apt install -y libossp-uuid-dev libavcodec-dev libavutil-dev libswscale-dev libfreerdp-dev
+sudo apt install -y libpango1.0-dev libssh2-1-dev libvncserver-dev libssl-dev libvorbis-dev libwebp-dev
+
+sudo apt install -y tomcat8 tomcat8-admin tomcat8-common tomcat8-user
+
+su
+ufw allow 8080
+ufw reload
+ldconfig
+systemctl enable guacd
+systemctl start guacd
+
+systemctl restart tomcat8
+systemctl restart guacd
+
+
+
+
+echo -n password | openssl md5
+
+printf '%s' password | md5sum
+
+
+
+http://server-IP:8080/guacamole

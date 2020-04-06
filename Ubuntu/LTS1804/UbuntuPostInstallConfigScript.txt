@@ -1,0 +1,122 @@
+#!/bin/bash
+
+echo "This is a shell script for installing basic software in Ubuntu"
+
+echo "This script configures the Ubuntu based System to install and update necessary software for use."
+echo "Written by Kiran"
+echo "Tested on Ubuntu LTS 18.04. It will work on all later updates."
+
+echo "Please enter your password to start the installation process:"
+
+sudo apt update && sudo apt upgrade -y
+
+sudo add-apt-repository -y ppa:kubuntu-ppa/backports
+
+sudo apt update -y
+
+sudo apt full-upgrade -y
+
+sudo apt install synaptic -y
+
+sudo apt install firefox -y
+
+sudo apt install thunderbird -y
+
+sudo apt install vlc -y
+
+sudo apt install smplayer -y
+
+sudo apt install kate -y
+
+sudo apt install okular -y
+
+sudo apt install gwenview -y
+
+sudo apt install dolphin -y
+
+sudo apt install amarok -y
+
+sudo apt install fonts-roboto -y
+
+sudo apt install unrar -y
+
+sudo apt install p7zip-full -y
+
+sudo apt install lm-sensors -y
+
+sudo apt install psensor -y
+
+sudo apt install geany -y
+
+sudo apt install codeblocks -y
+
+sudo apt install git-all cmake wget curl net-tools -y
+
+sudo apt install texlive-full texstudio lyx texworks -y
+
+sudo apt install ttf-mscorefonts-installer -y
+
+sudo apt install libdvd-pkg -y
+sudo dpkg-reconfigure libdvd-pkg
+
+sudo apt install openssh-client openssh-server ii -y
+
+sudo apt install isc-dhcp-server -y
+
+sudo service ssh restart
+
+sudo service ssh status
+
+sudo apt install ubuntu-restricted-extras kubuntu-restricted-extras -y
+
+sudo add-apt-repository ppa:papirus/papirus -y
+sudo apt-get update -y
+sudo apt-get install --install-recommends adapta-kde -y
+
+
+
+sudo apt-get purge --auto-remove libreoffice* -y
+
+wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+sudo apt update -y
+sudo apt install atom -y
+
+
+
+sudo apt install flatpak -y
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+flatpak install flathub org.octave.Octave
+#flatpak run org.octave.Octave
+
+flatpak install flathub org.libreoffice.LibreOffice
+#flatpak run org.libreoffice.LibreOffice
+
+
+
+
+# root:
+# 
+# sudo -i
+# sudo passwd root
+
+
+sudo apt install putty -y
+sudo apt install screen -y
+sudo apt install minicom -y
+sudo apt install picocom -y
+sudo apt install cutecom -y
+
+
+sudo dpkg --add-architecture i386
+wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+sudo apt update
+sudo apt install --install-recommends winehq-stable
+
+
+
+sudo apt-get install build-essential
+sudo apt-get install manpages-dev man-db manpages-posix-dev

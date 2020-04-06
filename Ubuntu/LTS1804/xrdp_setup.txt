@@ -1,0 +1,15 @@
+
+
+sudo apt install xrdp
+
+sudo apt-get install xfce4
+
+echo xfce4-session >~/.xsession
+echo mate-session >~/.xsession
+echo startkde >~/.xsession
+
+
+sudo service xrdp restart
+
+
+hostname -I

@@ -1,0 +1,36 @@
+
+https://www.ostechnix.com/install-apache-mariadb-php-lamp-stack-ubuntu-16-04/
+
+https://www.ostechnix.com/install-apache-mysql-php-lamp-stack-on-ubuntu-18-04-lts/
+
+https://kifarunix.com/install-lamp-stack-with-mariadb-10-on-debian-10-buster/
+
+sudo apt install -y apache2
+
+sudo apt install -y tomcat8
+
+sudo apt install -y mariadb-server mariadb-client
+
+sudo apt-get install -y software-properties-common
+
+
+sudo ufw app list
+sudo ufw app info "Apache Full"
+sudo ufw allow in "Apache Full"
+
+
+http://your_server_ip
+
+ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
+
+
+sudo apt install curl
+
+sudo apt install php libapache2-mod-php php-mysql
+
+
+
+
+sudo systemctl status mysql
+
+

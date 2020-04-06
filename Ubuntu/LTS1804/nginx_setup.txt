@@ -1,0 +1,126 @@
+
+
+https://blog.andreev.it/?p=4239
+
+https://www.scaleway.com/en/docs/how-to-configure-nginx-reverse-proxy/
+
+https://www.vultr.com/docs/create-an-html-5-rdp-ssh-frontend-using-guacamole-on-ubuntu-16-04-lts#Step_5__option_B____Setting_up_Nginx
+
+https://certbot.eff.org/lets-encrypt/ubuntubionic-apache.html
+
+https://dzone.com/articles/how-to-create-virtual-cloud-desktop-using-apache-g-1
+
+
+
+
+
+server {
+    listen 80;
+	listen [::]:80;
+    server_name ocn-rd-linuxtest.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name ocn-rd-linuxtest.com;
+    root html;
+    index index.html index.htm;
+    ssl on;
+    ssl_certificate         /etc/letsencrypt/live/ocn-rd-linuxtest.com/fullchain.pem;
+    ssl_certificate_key     /etc/letsencrypt/live/ocn-rd-linuxtest.com/privkey.pem;
+    ssl_session_cache    shared:SSL:10m;
+    ssl_session_timeout    1440m;
+    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers HIGH:!aNULL:!eNULL:!EXPORT:!CAMELLIA:!DES:!MD5:!PSK:!RC4;
+    ssl_prefer_server_ciphers on;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
+    access_log  /var/log/nginx/guacamole.access.log;
+	
+    location / {
+    proxy_pass http://localhost:8080/guacamole/;
+    proxy_buffering off;
+    proxy_http_version 1.1;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $http_connection;
+    proxy_cookie_path /guacamole/ /;
+	#access_log off;
+    }
+}
+
+
+
+
+sudo service nginx configtest
+
+sudo certbot --nginx -d ocn-rd-linuxtest.com
+
+sudo certbot certonly --webroot -w /usr/share/nginx/html -d ocn-rd-linuxtest.com
+
+sudo service nginx status
+
+sudo nginx -t
+
+crontab -e
+
+0 12 * * * /usr/bin/certbot renew --quiet
+
+sudo nano /etc/nginx/sites-available/default
+
+sudo nano /etc/nginx/conf.d/guacamole.conf
+
+#
+server {
+    listen 80;
+    listen [::]:80;
+    server_name ocn-rd-linuxtest.com;
+
+    access_log  /var/log/nginx/guacamole.access.log;
+
+    location / {
+    proxy_pass http://localhost:8080/guacamole/;
+    proxy_buffering off;
+    proxy_http_version 1.1;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $http_connection;
+    proxy_cookie_path /guacamole/ /;
+    # access_log off;
+    }
+}
+
+
+
+
+
+#
+
+server {
+    listen 443 ssl http2;
+    server_name ocn-rd-linuxtest.com;
+    root html;
+    index index.html index.htm;
+
+    ssl on;
+    ssl_certificate         /etc/letsencrypt/live/ocn-rd-linuxtest.com/fullchain.pem;
+    ssl_certificate_key     /etc/letsencrypt/live/ocn-rd-linuxtest.com/privkey.pem;
+    ssl_session_cache    shared:SSL:10m;
+    ssl_session_timeout    1440m;
+    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers HIGH:!aNULL:!eNULL:!EXPORT:!CAMELLIA:!DES:!MD5:!PSK:!RC4;
+    ssl_prefer_server_ciphers on;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
+    #access_log  /var/log/nginx/guacamole.access.log;
+
+    location / {
+    proxy_pass http://localhost:8080/guacamole/;
+    proxy_buffering off;
+    proxy_http_version 1.1;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $http_connection;
+    proxy_cookie_path /guacamole/ /;
+    access_log off;
+    }
+}

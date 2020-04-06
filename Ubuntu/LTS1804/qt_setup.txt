@@ -1,0 +1,21 @@
+
+
+sudo apt-get install build-essential
+
+sudo apt-get install libfontconfig1
+
+sudo apt-get install mesa-common-dev
+
+sudo apt-get install libglu1-mesa-dev -y
+
+sudo apt install qtcreator -y
+
+sudo apt-get install qt5-default
+
+sudo apt install qt5-doc
+
+sudo apt install qt5-doc-html qtbase5-doc-html
+
+sudo apt install qtbase5-examples
+
+sudo /sbin/ldconfig -v

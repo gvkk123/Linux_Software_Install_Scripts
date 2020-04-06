@@ -1,0 +1,21 @@
+
+sudo apt update
+sudo apt upgrade -y
+sudo apt install bash autoconf automake perl bison flex bc git git-daemon-run u-boot-tools curl samba tftpd-hpa nfs-kernel-server mtd-utils ncurses-dev -y
+sudo apt install python python-m2crypto python-all-dev python3 python3-all-dev -y
+sudo apt install libglib2.0-dev libdbus-glib-1-dev libtool gettext patch corkscrew python-argparse libpython2.7-stdlib -y
+sudo apt install crda hostapd wpasupplicant iw libnl openssl uim bluez bluez-tests bluetooth -y
+sudo apt install build-essential subversion sed coreutils texinfo docbook-utils gawk -y
+sudo apt install help2man diffstat file texi2html bison flex gettext libglib2.0-dev gperf -y
+sudo apt install autoconf automake libtool -y
+
+
+
+sudo apt install libc6:i386 libusb-0.1-4 libgconf-2-4 build-essential -y
+
+
+
+
+sudo apt install -y build-essential libcairo2-dev ${JPEGTURBO} ${LIBPNG} libossp-uuid-dev libavcodec-dev libavutil-dev libswscale-dev libfreerdp-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev ${MYSQL} libmysql-java ${TOMCAT} freerdp-x11 ghostscript wget dpkg-dev
+sudo apt install -y gcc-6 g++-6 libcairo2-dev libjpeg-turbo8-dev libpng-dev libossp-uuid-dev libavcodec-dev libavutil-dev libswscale-dev libfreerdp-dev libpango1.0-dev libssh2-1-dev libvncserver-dev libssl-dev libvorbis-dev libwebp-dev
+

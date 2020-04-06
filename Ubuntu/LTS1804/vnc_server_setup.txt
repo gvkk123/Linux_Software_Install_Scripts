@@ -1,0 +1,31 @@
+
+
+https://websiteforstudents.com/install-and-configure-vnc-server-on-ubuntu-16-04-18-04/
+
+https://www.hiroom2.com/2018/05/07/ubuntu-1804-xrdp-kde-en/
+
+
+sudo apt update -y
+sudo apt upgrade -y
+
+sudo apt install -y xfce4 xfce4-goodies
+
+sudo apt install -y xorg dbus-x11 x11-xserver-utils
+sudo apt install -y tigervnc-standalone-server tigervnc-common tigervnc-xorg-extension tigervnc-viewer
+sudo apt install -y tigervnc*
+
+su - vivek
+vncpasswd
+
+
+vncserver
+
+vncserver -list
+
+vncserver -kill :1
+
+
+cat /etc/systemd/system/vncserver@.service
+
+
+sudo systemctl status vncserver@1.service

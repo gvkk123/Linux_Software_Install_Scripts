@@ -1,0 +1,71 @@
+
+ conda update --prefix C:\Users\kgoginen\AppData\Local\Continuum\anaconda3 anaconda
+ 
+ sudo apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+ 
+ 
+ bash Miniconda3-latest-Linux-x86_64.sh
+ 
+ 
+ conda config --set auto_activate_base false
+ 
+#########################################
+ 
+ Updating Anaconda:
+ 
+conda update conda
+conda update anaconda
+
+conda install cython
+conda install pyqt
+conda install pylint
+conda install autopep8 
+
+conda install -c anaconda paramiko
+
+##############################################
+ Uninstalling Anaconda:
+ 
+sudo rm -rf ~/anaconda3
+sudo rm -rf ~/miniconda3
+
+
+Remove in ~/.bashrc:
+
+
+cat ~/.bashrc
+
+sudo nano ~/.bashrc
+
+
+# added by Anaconda3 installer
+export PATH="/home/linuxize/anaconda3/bin:$PATH"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ocn-rd-rpower/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ocn-rd-rpower/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ocn-rd-rpower/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ocn-rd-rpower/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+
+
+
+
+
+
+
+
+
+
+rm -rf ~/.condarc ~/.conda ~/.continuum
