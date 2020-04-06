@@ -1,0 +1,16 @@
+
+
+
+https://www.xilinx.com/support/answers/66184.html
+
+
+
+sudo dpkg --add-architecture i386
+
+sudo apt update
+
+
+sudo apt-get install libgtk2.0-0:i386 libfontconfig1:i386 libx11-6:i386 libxext6:i386 libxrender1:i386 libsm6:i386 libqtgui4:i386
+
+
+

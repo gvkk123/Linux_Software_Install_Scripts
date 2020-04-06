@@ -1,0 +1,43 @@
+
+
+https://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/how-to-install-eclipse-ide-on-ubuntu-18-04-lts.html
+
+Download the Eclipse CDT package from website:
+
+java -version
+sudo apt install openjdk-8-jdk
+java -version
+
+
+Extract to OPT folder:
+sudo tar -zxvf eclipse-parallel-2020-03-R-linux-gtk-x86_64.tar.gz -C /opt/
+
+
+sudo ln -s /opt/eclipse/eclipse /usr/bin/eclipse
+
+
+
+
+
+
+
+
+
+sudo nano /usr/share/applications/eclipse.desktop
+
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse IDE
+Comment=Eclipse IDE
+Exec=/usr/bin/eclipse
+Icon=/opt/eclipse/icon.xpm
+Terminal=false
+Type=Application
+StartupNotify=false
+
+
+
+
+
+sudo cp /usr/share/applications/eclipse.desktop ~/Desktop/

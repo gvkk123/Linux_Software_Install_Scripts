@@ -8,14 +8,19 @@ https://kifarunix.com/how-to-setup-guacamole-web-based-remote-desktop-access-too
 
 https://kifarunix.com/configure-guacamole-ssl-tls-with-nginx-reverse-proxy/
 
+https://www.vultr.com/docs/create-an-html-5-rdp-ssh-frontend-using-guacamole-on-ubuntu-16-04-lts#Step_4__option_A____Running_on_HTTP_only
 
-sudo apt install -y tomcat8 mariadb-server
+https://gist.github.com/adilinden/41c0c5c4aaca301260e5980dc4e0ef1e
+
+sudo apt install -y mariadb-server
 
 sudo apt install -y gcc-6 g++-6 libcairo2-dev libjpeg-turbo8-dev libpng-dev
 sudo apt install -y libossp-uuid-dev libavcodec-dev libavutil-dev libswscale-dev libfreerdp-dev
 sudo apt install -y libpango1.0-dev libssh2-1-dev libvncserver-dev libssl-dev libvorbis-dev libwebp-dev
 
 sudo apt install -y tomcat8 tomcat8-admin tomcat8-common tomcat8-user
+
+sudo apt install -y tomcat9*
 
 su
 ufw allow 8080
