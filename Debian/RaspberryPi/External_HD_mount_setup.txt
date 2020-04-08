@@ -1,0 +1,12 @@
+
+https://askubuntu.com/questions/547965/mounting-external-hard-disk-for-all-users-at-start-up-in-ubuntu-14-04
+
+sudo blkid
+
+/dev/sda1: LABEL="Kiran" UUID="E6E86565E86534C9" TYPE="ntfs" PTTYPE="atari" PARTUUID="19e18063-01"
+
+UUID=E6E86565E86534C9   /mnt/ExternalHDMedia1/   ntfs    defaults        0       0
+
+sudo nano /etc/fstab
+
+UUID=E6E86565E86534C9 /mnt/ExternalHDMedia1/    ntfs-3g        auto,user,rw 0 0
