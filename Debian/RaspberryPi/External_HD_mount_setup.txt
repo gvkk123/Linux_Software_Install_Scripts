@@ -3,10 +3,9 @@ https://askubuntu.com/questions/547965/mounting-external-hard-disk-for-all-users
 
 sudo blkid
 
-/dev/sda1: LABEL="Kiran" UUID="E6E86565E86534C9" TYPE="ntfs" PTTYPE="atari" PARTUUID="19e18063-01"
 
-UUID=E6E86565E86534C9   /mnt/ExternalHDMedia1/   ntfs    defaults        0       0
 
 sudo nano /etc/fstab
 
-UUID=E6E86565E86534C9 /mnt/ExternalHDMedia1/    ntfs-3g        auto,user,rw 0 0
+
+dev/disk/by-uuid/enteruuidhere /mnt/ExternalHDMedia1/ auto nosuid,nodev,nofail,x-gvfs-show 0 0
