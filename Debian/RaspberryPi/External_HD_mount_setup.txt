@@ -3,7 +3,7 @@ https://askubuntu.com/questions/547965/mounting-external-hard-disk-for-all-users
 
 sudo blkid
 
-
+ls -l /dev/disk/by-uuid/
 
 sudo nano /etc/fstab
 

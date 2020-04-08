@@ -1,0 +1,23 @@
+
+https://www.linuxbabe.com/ubuntu/install-plex-media-server-ubuntu-18-04
+
+https://pimylifeup.com/raspberry-pi-plex-server/
+
+
+sudo apt-get install apt-transport-https curl wget
+
+
+curl https://downloads.plex.tv/plex-keys/PlexSign.key | sudo apt-key add -
+
+
+echo deb https://downloads.plex.tv/repo/deb public main | sudo tee /etc/apt/sources.list.d/plexmediaserver.list
+
+
+sudo apt-get update
+
+sudo apt-get install plexmediaserver
+
+
+sudo systemctl status plexmediaserver
+
+sudo systemctl start plexmediaserver

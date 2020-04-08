@@ -1,0 +1,32 @@
+
+https://www.howtogeek.com/139433/how-to-turn-a-raspberry-pi-into-a-low-power-network-storage-device/
+https://pimylifeup.com/raspberry-pi-samba/
+
+sudo apt install samba samba-common samba-common-bin smbclient cifs-utils
+
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+
+
+
+[ExternalHDMedia1]
+    comment = Samba Share Media Drive on RaspberryPi
+    path = /mnt/ExternalHDMedia1/
+    available = yes
+    #valid users = pi
+    writable = yes
+    read only = no
+    browsable = yes
+    only guest = no
+    create mask = 0777
+    directory mask = 0777
+    public = no
+    #Guest ok = yes
+	
+
+
+
+
+sudo smbpasswd -a pi
+
+
+sudo systemctl restart smbd nmbd
