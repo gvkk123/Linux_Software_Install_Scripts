@@ -18,7 +18,6 @@ sudo apt install -y gcc-6 g++-6 libcairo2-dev libjpeg-turbo8-dev libpng-dev
 sudo apt install -y libossp-uuid-dev libavcodec-dev libavutil-dev libswscale-dev libfreerdp-dev
 sudo apt install -y libpango1.0-dev libssh2-1-dev libvncserver-dev libssl-dev libvorbis-dev libwebp-dev
 
-sudo apt install -y tomcat8 tomcat8-admin tomcat8-common tomcat8-user
 
 sudo apt install -y tomcat9*
 
@@ -33,6 +32,8 @@ systemctl restart tomcat8
 systemctl restart guacd
 
 
+
+ln -sf /etc/guacamole/guacamole.war /var/lib/tomcat9/webapps/
 
 
 echo -n password | openssl md5

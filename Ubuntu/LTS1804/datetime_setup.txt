@@ -1,0 +1,41 @@
+
+
+https://www.ostechnix.com/how-to-set-up-time-synchronization-on-ubuntu/
+
+timedatectl status
+
+sudo date +%Y%m%d -s "20200427"
+
+sudo timedatectl set-time '12:00:00'
+
+sudo timedatectl set-ntp true
+
+sudo dpkg-reconfigure tzdata
+
+sudo apt install fake-hwclock
+
+
+sudo systemctl restart systemd-timesyncd.service
+sudo systemctl status systemd-timesyncd.service
+
+
+
+sudo nano /etc/systemd/timesyncd.conf
+
+
+IF NTP IS BLOCKED:
+sudo apt install htpdate
+htpdate -a -l www.linux.org www.freebsd.org 
+
+
+
+
+To check if your machine can get the time via ntp over the Internet, you can use this amazing one-liner:
+date -d@$((0x`printf c%47s|nc -uw1 ntp.metas.ch 123|xxd -s40 -l4 -p`-64#23GDW0))
+
+
+
+sudo apt install ntp
+sudo systemctl start ntp
+
+sudo ntpq -p
