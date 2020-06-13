@@ -1,0 +1,29 @@
+
+
+After installing Ubuntu in VMWare player, use these commands:
+
+sudo apt-get -y install open-vm-tools fuse open-vm-tools-desktop
+
+
+
+Mount shared drives:
+
+This command works only till reboot:
+sudo /usr/bin/vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
+
+
+For persistant setup:
+
+in /etc/fstab add this line:
+
+vmhgfs-fuse /mnt/hgfs fuse defaults,nonempty,allow_other 0 0
+
+
+
+
+
+
+
+
+https://github.com/vmware/open-vm-tools/issues/248
+https://kb.vmware.com/s/article/60262

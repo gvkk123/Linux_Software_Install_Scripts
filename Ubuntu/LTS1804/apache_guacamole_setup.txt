@@ -1,5 +1,7 @@
 
 
+https://www.howtoforge.com/how-to-install-and-configure-guacamole-on-ubuntu-1804/
+
 https://wiki.debian.org/Guacamole
 
 https://github.com/MysticRyuujin/guac-install
@@ -12,25 +14,34 @@ https://www.vultr.com/docs/create-an-html-5-rdp-ssh-frontend-using-guacamole-on-
 
 https://gist.github.com/adilinden/41c0c5c4aaca301260e5980dc4e0ef1e
 
+https://phoenixnap.com/kb/how-to-install-tomcat-ubuntu
+
+
+
 sudo apt install -y mariadb-server
+sudo apt install mariadb*
 
 sudo apt install -y gcc-6 g++-6 libcairo2-dev libjpeg-turbo8-dev libpng-dev
 sudo apt install -y libossp-uuid-dev libavcodec-dev libavutil-dev libswscale-dev libfreerdp-dev
 sudo apt install -y libpango1.0-dev libssh2-1-dev libvncserver-dev libssl-dev libvorbis-dev libwebp-dev
 
-sudo apt install -y tomcat8 tomcat8-admin tomcat8-common tomcat8-user
+
 
 sudo apt install -y tomcat9*
 
-su
-ufw allow 8080
-ufw reload
-ldconfig
-systemctl enable guacd
-systemctl start guacd
 
-systemctl restart tomcat8
-systemctl restart guacd
+
+sudo apt install libcairo2-dev libjpeg-turbo8-dev libjpeg-dev libpng-dev libossp-uuid-dev libavcodec-dev libavutil-dev libswscale-dev libfreerdp-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev ghostscript git build-essential autoconf maven
+
+
+sudo ufw allow 8080
+sudo ufw reload
+sudo ldconfig
+sudo systemctl enable guacd
+sudo systemctl start guacd
+
+sudo systemctl restart tomcat9
+sudo systemctl restart guacd
 
 
 
@@ -42,3 +53,119 @@ printf '%s' password | md5sum
 
 
 http://server-IP:8080/guacamole
+
+
+
+sudo nano /lib/systemd/system/tomcat9.service
+
+add this line:
+Environment=JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+
+sudo systemctl daemon-reload
+sudo systemctl restart tomcat
+sudo systemctl status tomcat
+
+
+sudo ufw allow 8080/tcp
+
+
+
+
+
+
+
+sudo mysql_secure_installation
+
+# sudo mysql -u root -p
+Enter password: ***
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 233
+Server version: 5.5.29-0ubuntu0.12.10.1 (Ubuntu)
+
+Copyright (c) 2000, 2012, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE guacamole_db; 
+Query OK, 1 row affected (0.00 sec)
+
+mysql> CREATE USER 'guacamole_user'@'localhost' IDENTIFIED BY 'itronis#1';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> GRANT SELECT,INSERT,UPDATE,DELETE ON guacamole_db.* TO 'guacamole_user'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> quit;
+Bye
+
+
+
+http://guacamole.apache.org/releases/1.1.0/
+https://guacamole.apache.org/doc/gug/installing-guacamole.html
+
+tar -xzf guacamole-server-1.1.0.tar.gz
+cd guacamole-server-1.1.0/
+sudo ./configure --with-init-dir=/etc/init.d
+sudo make
+sudo make install
+sudo ldconfig
+
+
+ don't need to build guacamole-client,, just download guacamole.war from the project web site
+ 
+sudo cp guacamole-1.1.0.war /etc/guacamole/guacamole.war
+sudo ln -s /etc/guacamole/guacamole.war /var/lib/tomcat9/webapps/
+
+sudo ln -s /etc/guacamole/ /var/lib/tomcat9/.guacamole
+
+
+sudo apt install libmysql-java
+sudo ln -s /usr/share/java/mysql-connector-java.jar /etc/guacamole/lib/
+
+tar -xzvf guacamole-auth-jdbc-1.1.0.tar.gz
+sudo mv guacamole-auth-jdbc-1.1.0/mysql/guacamole-auth-jdbc-mysql-1.1.0.jar /etc/guacamole/extensions/
+
+
+DO this part as root:
+
+su
+cat guacamole-auth-jdbc-1.1.0/mysql/schema/*.sql | mysql -u root -p guacamole_db
+
+
+
+sudo touch /etc/guacamole/guacamole.properties
+
+sudo nano /etc/guacamole/guacamole.properties
+
+# Hostname and port of guacamole proxy
+#guacd-hostname: localhost
+#guacd-port:     4822
+
+# MySQL properties
+mysql-hostname: localhost
+mysql-port: 3306
+mysql-database: guacamole_db
+mysql-username: guacamole_user
+mysql-password: itronis#1
+
+
+
+
+
+
+
+
+
+
+Link the guacamole.properties file to your Tomcat setup: 
+
+sudo ln -s /etc/guacamole/ /var/lib/tomcat9/.guacamole
+
+

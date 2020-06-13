@@ -1,8 +1,14 @@
 
+https://linuxize.com/post/how-to-install-and-configure-vnc-on-ubuntu-18-04/
 
 https://websiteforstudents.com/install-and-configure-vnc-server-on-ubuntu-16-04-18-04/
 
 https://www.hiroom2.com/2018/05/07/ubuntu-1804-xrdp-kde-en/
+
+https://wiki.archlinux.org/index.php/TigerVNC
+
+https://wiki.archlinux.org/index.php/X11vnc
+https://suhu0426.github.io/Web/Howto-Install/Guacamole.html
 
 
 sudo apt update -y
@@ -28,4 +34,60 @@ vncserver -kill :1
 cat /etc/systemd/system/vncserver@.service
 
 
+sudo systemctl daemon-reload
+sudo systemctl enable vncserver@1.service
 sudo systemctl status vncserver@1.service
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+https://www.howtoforge.com/tutorial/how-to-start-a-vnc-server-for-the-actual-display-scraping-with-tigervnc/
+
+x0vncserver -passwordfile ~/.vnc/passwd -rfbport 5900 -display :0 >/dev/null 2>&1 &
+
+
+
+fuser -vn tcp 5900
+
+
+kill -9 10860
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+sudo apt install x11vnc --install-recommends
+
+x11vnc -rfbauth ~/.vnc/passwd -display :0
+
+
+[Unit]
+
+Description=x11vnc VNC Server for X11
+
+Requires=display-manager.service
+
+After=display-manager.service
+
+
+
+[Service]
+
+Type=forking
+
+ExecStartPre=/usr/bin/bash -c "/usr/bin/systemctl set-environment SDDMXAUTH=$(/usr/bin/find /var/run/sddm/ -type f)"
+
+ExecStart=/usr/bin/x11vnc -display :0 -auth ${SDDMXAUTH} -ncache 10 -forever -shared -bg -o /var/log/x11vnc.log -rfbauth /etc/x11vnc.passwd -xkb -norc -noxrecord -noxdamage -nomodtweak -multiptr
+
+ExecStop=/usr/bin/killall x11vnc
+
+Restart=on-failure
+
+Restart-sec=2
+
+
+
+[Install]
+
+WantedBy=graphical.target
