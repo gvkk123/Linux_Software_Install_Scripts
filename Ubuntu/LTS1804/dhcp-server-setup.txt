@@ -3,6 +3,8 @@ https://www.howtoforge.com/debian-static-ip-address
 
 https://blog.netpro.be/dhcpv6-configuration-isc-dhcp-server/
 
+http://www.noveldevices.co.uk/rp-dhcp-server
+
 sudo apt install isc-dhcp-server
 
 sudo apt install nmap -y

@@ -34,15 +34,7 @@ sudo apt install -y tomcat9*
 sudo apt install libcairo2-dev libjpeg-turbo8-dev libjpeg-dev libpng-dev libossp-uuid-dev libavcodec-dev libavutil-dev libswscale-dev libfreerdp-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev ghostscript git build-essential autoconf maven
 
 
-sudo ufw allow 8080
-sudo ufw reload
-sudo ldconfig
-sudo systemctl enable guacd
-sudo systemctl start guacd
-
-sudo systemctl restart tomcat9
-sudo systemctl restart guacd
-
+ln -sf /etc/guacamole/guacamole.war /var/lib/tomcat9/webapps/
 
 
 

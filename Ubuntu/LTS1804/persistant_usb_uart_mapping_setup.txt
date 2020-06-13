@@ -23,23 +23,28 @@ sudo nano /etc/udev/rules.d/99-usb-serial.rules
 
 
 
-
-
-
-# Linux PMR UART0                                                                                                                                                                                                                              
+# Linux PMR UART0
 SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="FTVNQI2H", MODE="0666", SYMLINK+="PmrLinuxUart0"
-                                                                                                                                                                                                                                            
-# DSP PMR RF UART0                                                                                                                                                                                                                          
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="FTYYTFG0", MODE="0666", SYMLINK+="PmrDspRFUart0"                                                                                                            
-                                                                                                                                                                                                                                            
-# DSP PMR UART0                                                                                                                                                                                                                                 
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="FTVMVVR6", MODE="0666", SYMLINK+="PmrDspUart0"                                                                                                          
-                                                                                                                                                                                                                                            
-# IOT Relay Switch UART                                                                                                                                                                                                                               
-SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="01D5EAD3", MODE="0666", SYMLINK+="IOTRelaySwitchUart"                                                                                                          
-                                                                                                                                                                                                                                            
-# ZC706 FPGA UART                                                                                                                                                                                                                              
+
+# DSP PMR RF UART0
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="FTYYTFG0", MODE="0666", SYMLINK+="PmrDspRFUart0"
+
+# DSP PMR UART0
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="FTVMVVR6", MODE="0666", SYMLINK+="PmrDspUart0"
+
+# IOT Relay Switch UART
+SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="01D5EAD3", MODE="0666", SYMLINK+="IOTRelaySwitchUart"
+
+# ZC706 FPGA UART
 SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0001", MODE="0666", SYMLINK+="ZC706Uart"
 
+# RF BOX RF UART0
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="FTZ99XUJ", MODE="0666", SYMLINK+="RFBOXRFUart0"
+
+# RF BOX UART0                                                                                                                                                                             
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="FT1Y699X", MODE="0666", SYMLINK+="RFBOXUart0"
+
+# RF BOX Relay Switch UART
+SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="01D5F5F3", MODE="0666", SYMLINK+="RFBOXRelaySwitchUart"
 
 

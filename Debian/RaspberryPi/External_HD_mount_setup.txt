@@ -1,0 +1,11 @@
+
+https://askubuntu.com/questions/547965/mounting-external-hard-disk-for-all-users-at-start-up-in-ubuntu-14-04
+
+sudo blkid
+
+ls -l /dev/disk/by-uuid/
+
+sudo nano /etc/fstab
+
+
+dev/disk/by-uuid/enteruuidhere /mnt/ExternalHDMedia1/ auto nosuid,nodev,nofail,x-gvfs-show 0 0
