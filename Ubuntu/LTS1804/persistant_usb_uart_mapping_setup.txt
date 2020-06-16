@@ -4,6 +4,10 @@ https://indilib.org/support/tutorials/157-persistent-serial-port-mapping.html
 http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/
 
 
+
+Add Normal user to dialout group for accessing serial ports as user instead of root:
+sudo adduser $(whoami) dialout
+
 ls /dev/ttyUSB*
 
 
