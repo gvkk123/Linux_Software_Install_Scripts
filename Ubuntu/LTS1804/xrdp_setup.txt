@@ -2,11 +2,14 @@
 
 sudo apt install xrdp
 
+https://askubuntu.com/questions/1237288/20-04-xrdp-kde-plasma-connect-issue
+
 sudo apt-get install xfce4
 
 echo xfce4-session >~/.xsession
 echo mate-session >~/.xsession
 echo startkde >~/.xsession
+echo "/usr/bin/startplasma-x11" > ~/.xsession
 
 
 sudo service xrdp restart
