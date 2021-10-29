@@ -56,6 +56,9 @@ kill -9 10860
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+use this link for x11vnc install:
+http://c-nergy.be/blog/?p=8984
+
 
 sudo apt install x11vnc --install-recommends
 
