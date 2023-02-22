@@ -1,0 +1,10 @@
+
+# Install KDE Plasma 5 Desktop
+
+dnf -y update
+dnf config-manager --set-enabled crb
+dnf install -y epel-release
+dnf groupinstall -y "KDE Plasma Workspaces"
+dnf --enablerepo=epel group -y install "KDE Plasma Workspaces" "base-x"
+systemctl set-default graphical
+reboot -f
