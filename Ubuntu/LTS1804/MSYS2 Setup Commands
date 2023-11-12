@@ -1,0 +1,30 @@
+https://www.msys2.org/
+
+pacman -Suy
+pacman -S tar make cmake base-devel autoconf git man-db
+pacman -S mingw-w64-ucrt-x86_64-gcc
+pacman -S mingw-w64-x86_64-toolchain
+pacman -Qm
+paccache -r
+
+
+
+
+--------------------------------------------------------------------
+PATH
+
+To set the path to GCC Compiler
+
+Open Start and type environment variables
+
+Click Advanced System Settings
+
+Click Environment Variables
+
+In the System variables section add a new entry to PATH/ Path.
+
+Add the following this line:
+
+C:\msys64\mingw64\bin
+
+Note: The path may vary according to where you have installed MSYS2
