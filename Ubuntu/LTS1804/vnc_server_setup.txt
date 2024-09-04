@@ -67,9 +67,10 @@ Description=x11vnc server for SDDM
 After=display-manager.service network.target syslog.service
 
 [Service]
-ExecStart=
-#ExecStart=/bin/bash -c "/usr/bin/x11vnc -auth $(find /var/run/sddm/ -type f) -display :0 -forever -loop -noxdamage -repeat -rfbauth /home/USER_NAME/.vnc/passwd -shared"
+ExecStartPre=/bin/sleep 10
 ExecStart=/bin/bash -c "/usr/bin/x11vnc -auth /var/run/sddm/* -display :0 -forever -loop -noxdamage -repeat -rfbauth /home/USER_NAME/.vnc/passwd -shared"
+Restart=always
+RestartSec=5
 
 [Install]
 WantedBy=graphical.target
@@ -77,6 +78,8 @@ WantedBy=graphical.target
 
 sudo systemctl enable x11vnc.service
 sudo systemctl status x11vnc.service
+
+sudo journalctl -u x11vnc.service
 
 Links:
 https://www.crazy-logic.co.uk/projects/computing/how-to-install-x11vnc-vnc-server-as-a-service-on-ubuntu-20-04-for-remote-access-or-screen-sharing
