@@ -1,0 +1,40 @@
+
+# Start with Minimal install using the developer DVD
+https://www.unixsysadmin.com/rhel-10-resources/
+
+
+# To install KDE Plasma 6 Desktop
+
+sudo dnf update
+sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+sudo /usr/bin/crb enable
+sudo dnf groupinstall "KDE Plasma Workspaces"
+sudo dnf update
+sudo systemctl set-default graphical.target
+sudo systemctl get-default
+sudo reboot
+
+
+# Install additional applications
+sudo dnf install kate vlc wireshark minicom java java-devel git-all
+
+# Install developmental tools - C++
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html-single/developing_c_and_cpp_applications_in_rhel_10/index
+
+sudo dnf group install "Development Tools"
+sudo dnf install llvm-toolset
+sudo dnf install gcc-gfortran
+sudo dnf install gdb valgrind systemtap ltrace strace
+sudo dnf install dnf-utils
+sudo dnf install perf papi pcp-zeroconf valgrind strace sysstat systemtap
+
+
+# Install Python3
+https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/installing_and_using_dynamic_programming_languages/installing-and-using-python
+
+sudo dnf install python3 python3-pip
+
+
+
+
+
