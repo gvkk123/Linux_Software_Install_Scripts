@@ -1,0 +1,27 @@
+
+
+https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-18-04/
+
+https://help.ubuntu.com/community/UFW
+
+https://help.ubuntu.com/community/Gufw
+
+
+sudo apt install -y ufw gufw
+
+sudo ufw status
+
+sudo ufw app list
+
+sudo ufw app info 'OpenSSH'
+
+sudo ufw app info 'Samba'
+
+sudo ufw enable
+
+sudo ufw status verbose
+
+sudo ufw allow 22
+
+sudo ufw allow ssh
+sudo ufw deny ssh

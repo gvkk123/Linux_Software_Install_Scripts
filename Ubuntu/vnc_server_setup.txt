@@ -1,0 +1,127 @@
+
+https://linuxize.com/post/how-to-install-and-configure-vnc-on-ubuntu-18-04/
+
+https://websiteforstudents.com/install-and-configure-vnc-server-on-ubuntu-16-04-18-04/
+
+https://www.hiroom2.com/2018/05/07/ubuntu-1804-xrdp-kde-en/
+
+https://wiki.archlinux.org/index.php/TigerVNC
+
+https://wiki.archlinux.org/index.php/X11vnc
+https://suhu0426.github.io/Web/Howto-Install/Guacamole.html
+
+
+sudo apt update -y
+sudo apt upgrade -y
+
+sudo apt install -y xfce4 xfce4-goodies
+
+sudo apt install -y xorg dbus-x11 x11-xserver-utils
+sudo apt install -y tigervnc-standalone-server tigervnc-common tigervnc-xorg-extension tigervnc-viewer
+sudo apt install -y tigervnc*
+
+su - vivek
+vncpasswd
+
+
+vncserver
+
+vncserver -list
+
+vncserver -kill :1
+
+
+cat /etc/systemd/system/vncserver@.service
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable vncserver@1.service
+sudo systemctl status vncserver@1.service
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+https://www.howtoforge.com/tutorial/how-to-start-a-vnc-server-for-the-actual-display-scraping-with-tigervnc/
+
+x0vncserver -passwordfile ~/.vnc/passwd -rfbport 5900 -display :0 >/dev/null 2>&1 &
+
+
+
+fuser -vn tcp 5900
+
+
+kill -9 10860
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+NEWER - KDE-PLASMA5 - SDDM on UBUNTU & DEBIAN
+sudo apt install x11vnc --install-recommends
+sudo x11vnc -storepasswd
+
+sudo vi /etc/systemd/system/x11vnc.service 
+-----------------------------------------------------------------------------------------------------------
+#REPLACE USER_NAME
+
+[Unit]
+Description=x11vnc server for SDDM
+After=display-manager.service network.target syslog.service
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/bin/bash -c "/usr/bin/x11vnc -auth /var/run/sddm/* -display :0 -forever -loop -noxdamage -repeat -rfbauth /home/USER_NAME/.vnc/passwd -shared"
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target
+-----------------------------------------------------------------------------------------------------------
+
+sudo systemctl enable x11vnc.service
+sudo systemctl status x11vnc.service
+
+sudo journalctl -u x11vnc.service
+
+Links:
+https://www.crazy-logic.co.uk/projects/computing/how-to-install-x11vnc-vnc-server-as-a-service-on-ubuntu-20-04-for-remote-access-or-screen-sharing
+https://wiki.archlinux.org/title/x11vnc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+OLDER
+use this link for x11vnc install:
+http://c-nergy.be/blog/?p=8984
+
+
+sudo apt install x11vnc --install-recommends
+
+x11vnc -rfbauth ~/.vnc/passwd -display :0
+
+
+[Unit]
+
+Description=x11vnc VNC Server for X11
+
+Requires=display-manager.service
+
+After=display-manager.service
+
+
+
+[Service]
+
+Type=forking
+
+ExecStartPre=/usr/bin/bash -c "/usr/bin/systemctl set-environment SDDMXAUTH=$(/usr/bin/find /var/run/sddm/ -type f)"
+
+ExecStart=/usr/bin/x11vnc -display :0 -auth ${SDDMXAUTH} -ncache 10 -forever -shared -bg -o /var/log/x11vnc.log -rfbauth /etc/x11vnc.passwd -xkb -norc -noxrecord -noxdamage -nomodtweak -multiptr
+
+ExecStop=/usr/bin/killall x11vnc
+
+Restart=on-failure
+
+Restart-sec=2
+
+
+
+[Install]
+
+WantedBy=graphical.target
