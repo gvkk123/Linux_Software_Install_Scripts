@@ -4,6 +4,7 @@ pacman -Suy
 pacman -S tar make cmake base-devel autoconf git man-db
 pacman -S mingw-w64-ucrt-x86_64-gcc
 pacman -S mingw-w64-x86_64-toolchain
+pacman -S mingw-w64-clang-x86_64-toolchain
 pacman -Qm
 paccache -r
 
