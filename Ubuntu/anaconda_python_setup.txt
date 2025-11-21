@@ -11,18 +11,23 @@
  
 #########################################
  
- Updating Anaconda:
+Updating Anaconda after installing Miniconda as a User in order below:
  
 conda update conda
-conda update anaconda
 
 conda install cython
-conda install pyqt
 conda install pylint
 conda install autopep8 
+conda install paramiko
+conda install pyserial
+conda install conda-forge::pyvisa
+conda install conda-forge::pyvisa-py
 
-conda install -c anaconda paramiko
+conda install anaconda
+conda install anaconda-navigator
+conda install tensorflow
 
+conda update --all
 ##############################################
  Uninstalling Anaconda:
  
