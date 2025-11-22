@@ -28,6 +28,14 @@ conda install anaconda-navigator
 conda install tensorflow
 
 conda update --all
+conda clean --all
+
+##############################################
+After installing Anaconda as User, in the base environment install:
+
+conda install anaconda-navigator numpy pandas matplotlib seaborn scikit-learn jupyter notebook spyder ipython cython pylint autopep8 paramiko pyserial tensorflow keras pytorch
+
+conda create -n radioconda -c conda-forge -c ryanvolz --only-deps radioconda
 ##############################################
  Uninstalling Anaconda:
  
