@@ -1,0 +1,39 @@
+
+FreeBSD 15 with KDE Plasma 6 Desktop
+----------------------------------------
+pkg update
+pkg upgrade
+----------------------------------------
+pkg install sudo wget curl nano git
+pkg install seatd kde sddm drm-kmod
+----------------------------------------
+sysrc seatd_enable="YES"
+sysrc dbus_enable="YES"
+sysrc sddm_enable="YES"
+
+service seatd start
+service dbus start
+service sddm start
+
+Status can be seen in /etc/rc.conf
+----------------------------------------
+Add the following lines to sysctl.conf:
+
+nano /etc/sysctl.conf
+
+net.local.stream.recvspace=65536
+net.local.stream.sendspace=65536
+
+To apply the change, either run the following command as root or simply reboot the system:
+sysctl -f /etc/sysctl.conf
+----------------------------------------
+
+pw groupmod video -m USER
+pw groupmod operator -m USER
+----------------------------------------
+pkg install open-vm-tools xf86-video-vmware xf86-input-vmmouse
+pkg install xrdp xorgxrdp
+pkg install firefox
+
+----------------------------------------
+pkg install ark automount fastfetch htop kde firefox networkmgr pavucontrol sddm vim
