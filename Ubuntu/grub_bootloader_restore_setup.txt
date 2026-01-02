@@ -1,0 +1,10 @@
+
+
+ls
+ls (hd0,msdos3)
+set
+set boot=(hd0,msdos3)
+set prefix=(hd0,msdos3)/boot/grub
+set root=(hd0,msdos3)
+insmod normal
+normal
