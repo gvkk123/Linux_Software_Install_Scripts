@@ -1,28 +1,21 @@
 
 
-https://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/how-to-install-eclipse-ide-on-ubuntu-18-04-lts.html
+https://www.itzgeek.com/post/how-to-install-eclipse-ide-on-ubuntu-20-04/
 
-Download the Eclipse CDT package from website:
+Download the Eclipse  Package from Website:
 
-java -version
-sudo apt install openjdk-8-jdk
+sudo apt install default-jdk default-jre
 java -version
 
 
 Extract to OPT folder:
-sudo tar -zxvf eclipse-parallel-2020-03-R-linux-gtk-x86_64.tar.gz -C /opt/
+sudo tar -zxvf eclipse-embedcpp-2026-03-R-linux-gtk-x86_64.tar.tgz -C /opt/
 
 
-sudo ln -s /opt/eclipse/eclipse /usr/bin/eclipse
+sudo ln -sf /opt/eclipse/eclipse /usr/bin/eclipse
 
 
-
-
-
-
-
-
-
+Create Application Shortcut:
 sudo nano /usr/share/applications/eclipse.desktop
 
 
@@ -39,5 +32,5 @@ StartupNotify=false
 
 
 
-
+Copy Shortcut to Desktop:
 sudo cp /usr/share/applications/eclipse.desktop ~/Desktop/
