@@ -24,7 +24,7 @@ conda config --set channel_priority strict
 ##############################################
 After installing Anaconda as User, in the base environment install:
 
-conda install anaconda-navigator numpy pandas matplotlib seaborn plotly scikit-learn jupyter notebook spyder ipython cython pylint autopep8 paramiko pyserial tensorflow keras pytorch
+conda install anaconda-navigator numpy pandas matplotlib seaborn plotly scikit-learn jupyter notebook spyder ipython cython pylint autopep8 paramiko scp pyserial pytest django tensorflow keras pytorch
  
 conda install -c conda-forge gnuradio gqrx pyvisa pyvisa-py soapysdr uhd volk rtl-sdr hackrf bladerf airspy airspyhf limesuite mirisdr libiio libm2k inspectrum pyfda digital_rf codec2 gnuradio-osmosdr gnuradio-satellites gnuradio-iqbalance gnuradio-iridium
 
