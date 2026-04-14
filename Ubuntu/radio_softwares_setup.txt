@@ -1,7 +1,4 @@
 
-
-
-
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # GQRX + GNURadio + PLUTO-SDR :
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10,34 +7,17 @@
 # https://kb.ettus.com/Building_and_Installing_the_USRP_Open-Source_Toolchain_(UHD_and_GNU_Radio)_on_Linux
 # 
 # http://www.hagensieker.com/blog/page/?post_id=77&title=adalm-pluto-sdr---or---good-god-they-make-it-so-hard
+#
+#https://hagensieker.com/2024/01/09/building-a-linux-computer-for-offline-use/
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-sudo apt-get purge --auto-remove gqrx -y
-sudo apt-get purge --auto-remove gqrx-sdr -y
-sudo apt-get purge --auto-remove libgnuradio* -y
+sudo apt update
 
-sudo add-apt-repository -y ppa:bladerf/bladerf
-sudo add-apt-repository -y ppa:ettusresearch/uhd
-sudo add-apt-repository -y ppa:myriadrf/drivers
-sudo add-apt-repository -y ppa:myriadrf/gnuradio
-sudo add-apt-repository -y ppa:gqrx/gqrx-sdr
+sudo apt install libusb-1.0-0-dev git cmake pkg-config build-essential make cmake
 
-sudo apt-get update -y
+sudo apt install gnuradio gnuradio-dev gqrx-sdr rtl-sdr librtlsdr-dev libiio-dev libiio-utils libad9361-dev libvolk-bin soapysdr-tools soapysdr-module-all libsoapysdr-dev uhd-host libuhd-dev inspectrum hackrf bladerf airspy airspyhf limesuite miri-sdr libmirisdr-dev libm2k-dev codec2 gr-osmosdr gr-satellites gpsd gpsd-clients
 
 
-
-sudo apt-get install rtl-sdr librtlsdr-dev miri-sdr libmirisdr-dev -y
-
-sudo apt-get install gqrx-sdr* gnuradio* gr-iio* -y
-
-sudo apt-get install libvolk-bin -y
 #volk_profile
 
-
-
-
-
 gqrx -h
-
-
-sudo apt-get install cmake xorg-dev libglu1-mesa-dev
