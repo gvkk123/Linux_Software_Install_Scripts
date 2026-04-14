@@ -8,9 +8,9 @@ sudo apt update && sudo apt dist-upgrade && sudo apt autoremove && sudo snap ref
 
 sudo apt install kubuntu-desktop
 
-sudo apt install gcc gdb gfortran build-essential default-jre default-jdk llvm lldb clang clangd git-all make cmake automake autoconf minicom screen putty terminator unrar 7zip wget curl net-tools
+sudo apt install gcc g++ gdb gfortran valgrind build-essential default-jre default-jdk llvm lldb clang clangd git-all make cmake ccache automake autoconf cpufrequtils doxygen minicom screen putty terminator unrar 7zip swig wget curl net-tools libfftw3-bin libfftw3-dev libfftw3-doc libboost-all-dev libncurses6 libncurses-dev libusb-1.0-0 libusb-1.0-0-dev libusb-dev
 
-sudo apt install synaptic fastfetch vlc smplayer libreoffice
+sudo apt install synaptic fastfetch vlc smplayer libreoffice wireshark tshark aircrack-ng octave octave-dev
 
 sudo apt install ttf-mscorefonts-installer fonts-ubuntu fonts-roboto ubuntu-restricted-extras kubuntu-restricted-extras
 
