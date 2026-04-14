@@ -1,9 +1,7 @@
 
 https://www.cyberciti.biz/faq/how-to-install-ssh-on-ubuntu-linux-using-apt-get/
 
-
-sudo apt install -y openssh-client
-sudo apt install -y openssh-server
+sudo apt install openssh-server openssh-client
 
 sudo ufw allow ssh
 sudo systemctl enable ssh
