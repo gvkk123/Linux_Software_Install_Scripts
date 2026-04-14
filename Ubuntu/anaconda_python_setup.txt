@@ -1,7 +1,4 @@
-
- conda update --prefix C:\Users\kgoginen\AppData\Local\Continuum\anaconda3 anaconda
  
- sudo apt-get install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
  
  
  bash Miniconda3-latest-Linux-x86_64.sh
@@ -14,61 +11,37 @@
 Updating Anaconda after installing Miniconda as a User in order below:
  
 conda update conda
-
-conda install cython
-conda install pylint
-conda install autopep8 
-conda install paramiko
-conda install pyserial
-conda install conda-forge::pyvisa
-conda install conda-forge::pyvisa-py
-
-conda install anaconda
-conda install anaconda-navigator
-conda install tensorflow
+conda update -n base -c defaults conda
 
 conda update --all
-conda clean --all
+##############################################
+Adding CondaForge has higher priority channel:
+
+conda config --show-sources
+conda config --add channels conda-forge
+conda config --set channel_priority strict
 
 ##############################################
 After installing Anaconda as User, in the base environment install:
 
-conda install anaconda-navigator numpy pandas matplotlib seaborn scikit-learn jupyter notebook spyder ipython cython pylint autopep8 paramiko pyserial tensorflow keras pytorch
+conda install anaconda-navigator numpy pandas matplotlib seaborn plotly scikit-learn jupyter notebook spyder ipython cython pylint autopep8 paramiko pyserial tensorflow keras pytorch
+ 
+conda install -c conda-forge gnuradio gqrx pyvisa pyvisa-py soapysdr uhd volk rtl-sdr hackrf bladerf airspy airspyhf limesuite mirisdr libiio libm2k inspectrum pyfda digital_rf codec2 gnuradio-osmosdr gnuradio-satellites gnuradio-iqbalance gnuradio-iridium
+
+conda create -n radioenv -c conda-forge gnuradio gqrx pyvisa pyvisa-py soapysdr uhd volk rtl-sdr hackrf bladerf airspy airspyhf limesuite mirisdr libiio libm2k inspectrum pyfda digital_rf codec2 gnuradio-osmosdr gnuradio-satellites gnuradio-iqbalance gnuradio-iridium
 
 conda create -n radioconda -c conda-forge -c ryanvolz --only-deps radioconda
 ##############################################
- Uninstalling Anaconda:
+Clean Package Cache:
+conda clean --all
+
+##############################################
+Uninstalling Anaconda:
  
 sudo rm -rf ~/anaconda3
 sudo rm -rf ~/miniconda3
+##############################################
 
-
-Remove in ~/.bashrc:
-
-
-cat ~/.bashrc
-
-sudo nano ~/.bashrc
-
-
-# added by Anaconda3 installer
-export PATH="/home/linuxize/anaconda3/bin:$PATH"
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ocn-rd-rpower/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ocn-rd-rpower/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ocn-rd-rpower/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ocn-rd-rpower/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 
 
