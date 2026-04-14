@@ -40,9 +40,13 @@ Uninstalling Anaconda:
  
 sudo rm -rf ~/anaconda3
 sudo rm -rf ~/miniconda3
+rm -rf ~/.condarc ~/.conda ~/.continuum
 ##############################################
 
 
+To install python packages directly on Ubuntu instead of Anaconda:
+
+sudo apt install python3 python3-pip python3-dev ipython3 cython3 spyder python3-numpy python3-scipy python3-matplotlib python3-seaborn python3-pandas jupyter-notebook python3-jupyterlab-server pylint python3-autopep8 python3-paramiko python3-serial python3-pyvisa python3-packaging python3-sklearn python3-torch
 
 
 
@@ -54,4 +58,5 @@ sudo rm -rf ~/miniconda3
 
 
 
-rm -rf ~/.condarc ~/.conda ~/.continuum
+
+
