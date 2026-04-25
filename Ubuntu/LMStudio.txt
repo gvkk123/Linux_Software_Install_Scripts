@@ -1,0 +1,29 @@
+Install LM Studio on Ubuntu Linux:
+
+sudo apt install libfuse2t64
+
+sudo mkdir -p /home/analog/LMStudio
+
+mv LM-Studio-0.4.12-1-x64.AppImage /home/analog/LMStudio/LM_Studio.AppImage
+
+chmod +x LM_Studio.AppImage
+
+Create Application Shortcut:
+sudo nano /usr/share/applications/lmstudio.desktop
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=LM Studio
+Comment=LM Studio Launcher
+Exec=/home/analog/LMStudio/LM_Studio.AppImage --no-sandbox
+Icon=/usr/share/icons/lmstudio.png
+Terminal=false
+Type=Application
+Categories=Development
+StartupNotify=false
+
+
+
+
+Copy Shortcut to Desktop:
+sudo cp /usr/share/applications/lmstudio.desktop /home/analog/Desktop/
