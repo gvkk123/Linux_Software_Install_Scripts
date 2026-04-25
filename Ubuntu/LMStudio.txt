@@ -11,6 +11,11 @@ chmod +x LM_Studio.AppImage
 Create Application Shortcut:
 sudo nano /usr/share/applications/lmstudio.desktop
 
+
+wget https://lmstudio.ai/api/v1/profile/lmstudio/image
+sudo mv image /usr/share/icons/lmstudio.png
+
+
 [Desktop Entry]
 Encoding=UTF-8
 Name=LM Studio
