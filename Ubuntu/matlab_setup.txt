@@ -1,0 +1,26 @@
+
+Linux installation commands:
+xhost +SI:localuser:root
+sudo -H ./install
+
+
+After installing Matlab:
+sudo apt install matlab-support
+
+
+on HiDPI Screens/ 4K screens set the optimum Zoom value:
+s = settings;
+s.matlab.desktop.Zoom.PersonalValue = 200; % Sets zoom to 200%
+
+
+Nvidia GPU Setup:
+% Get device object
+d = gpuDevice
+validateGPU
+gpucoderSetup
+
+
+Setup Matlab Compiler:
+mex -setup
+mex -setup c++
+mex -setup fortran
