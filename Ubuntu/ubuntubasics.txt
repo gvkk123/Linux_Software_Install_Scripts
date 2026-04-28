@@ -1,14 +1,14 @@
  #!/bin/bash  
 echo "This is a shell script for installing basic software in Ubuntu"
 
-sudo apt update && sudo apt dist-upgrade && sudo apt autoremove && sudo snap refresh && sudo update-grub
+sudo apt update -y && sudo apt dist-upgrade -y && sudo apt autoremove && sudo snap refresh && sudo update-grub && sudo apt autoclean
 
 
 # Softwares:
 
 sudo apt install kubuntu-desktop
 
-sudo apt install gcc g++ gdb gfortran valgrind build-essential default-jre default-jdk llvm lldb clang clangd git-all make cmake ccache automake autoconf cpufrequtils doxygen minicom screen putty terminator unrar 7zip swig wget curl net-tools libfftw3-bin libfftw3-dev libfftw3-doc libboost-all-dev libncurses6 libncurses-dev libusb-1.0-0 libusb-1.0-0-dev libusb-dev
+sudo apt install gcc g++ gdb gfortran valgrind build-essential default-jre default-jdk llvm lldb clang clangd git-all make cmake ccache automake autoconf cpufrequtils doxygen minicom screen putty terminator unrar 7zip swig wget curl net-tools libfftw3-bin libfftw3-dev libfftw3-doc libboost-all-dev libncurses6 libncurses-dev libusb-1.0-0 libusb-1.0-0-dev libusb-dev libwebkit2gtk-4.1-0
 
 sudo apt install synaptic fastfetch vlc smplayer libreoffice wireshark tshark aircrack-ng octave octave-dev
 
@@ -19,6 +19,9 @@ sudo apt install lm-sensors psensor
 sudo apt install texstudio lyx texworks
 
 sudo apt install geany codeblocks
+
+# Entire Set:
+sudo apt install openssh-server openssh-client isc-dhcp-client wpasupplicant hostapd iw net-tools wireless-tools samba vlc smplayer gcc gdb g++ gfortran gettext tcpdump screen putty minicom usbutils expect vim nano gedit kate gawk dos2unix git git-all fakeroot build-essential ninja-build libblas3 libblas-dev libopenblas-dev liblapack3 liblapack-dev liblapacke-dev r-base r-base-dev valgrind doxygen libcunit1 libcunit1-doc libcunit1-dev libcppunit-dev binutils texstudio texinfo lyx libreoffice octave p7zip-full unrar unzip bzip2 terminator synaptic wget curl rsync ca-certificates apt-transport-https software-properties-common fonts-roboto fonts-hack fonts-noto linux-headers-$(uname -r) dkms htop neofetch screenfetch bc flex bison dwarves libelf-dev make cmake autotools-dev autoconf automake libtool pkg-config clang lldb lld file filezilla lighttpd php php-cgi python3 python3-pip python3-pexpect python3-git python3-jinja2 python3-subunit perl default-jdk default-jre gparted xterm iperf3 wireshark tshark aircrack-ng libreadline-dev libnl-3-dev libnl-genl-3-dev libnl-cli-3-dev libnl-route-3-dev libssl-dev libdbus-1-dev ethtool shtool rfkill zlib1g-dev libcap-dev libpcap-dev libsqlite3-dev libpcre2-dev hwloc libhwloc-dev libcmocka-dev xz-utils libncurses-dev libpcsclite-dev adb libbluetooth-dev lsb-release xterm x11-utils x11vnc xrdp zsh zsh-autosuggestions zsh-syntax-highlighting diffstat chrpath socat cpio debianutils iputils-ping zstd liblz4-tool libacl1 kde-full kde-standard kde-plasma-desktop kubuntu-desktop yakuake kde-full
 
 
 # root:
@@ -31,4 +34,8 @@ sudo passwd root
 sudo apt install libdvd-pkg
 sudo dpkg-reconfigure libdvd-pkg
 
+
+# Update failure correction:
+sudo dpkg --configure -a
+sudo dpkg-reconfigure unattended-upgrades
 
