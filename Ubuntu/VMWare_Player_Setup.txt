@@ -2,7 +2,7 @@
 
 After installing Ubuntu in VMWare player, use these commands:
 
-sudo apt-get -y install open-vm-tools fuse open-vm-tools-desktop
+sudo apt install open-vm-tools fuse open-vm-tools-desktop
 
 
 

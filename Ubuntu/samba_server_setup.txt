@@ -6,7 +6,7 @@ https://tutorials.ubuntu.com/tutorial/install-and-configure-samba
 
 https://www.linuxbabe.com/ubuntu/system-config-samba-ubuntu-16-04
 
-sudo apt install samba samba-common samba-common-bin smbclient system-config-samba cifs-utils
+sudo apt install samba samba-common samba-common-bin smbclient cifs-utils
 
 whereis samba
 
