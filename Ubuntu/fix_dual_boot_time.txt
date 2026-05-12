@@ -1,0 +1,10 @@
+Steps to Fix Dual Boot Time (Ubuntu Side):
+
+Open Terminal: Press Ctrl+Alt+T.
+Run Command: Type the following and press Enter:
+
+timedatectl set-local-rtc 1 --adjust-system-clock
+
+Verify: Run timedatectl to confirm. Under "RTC in local TZ", it should say yes.
+
+Restart: Reboot into Windows once to ensure the time syncs, then it should remain correct in both operating systems.
