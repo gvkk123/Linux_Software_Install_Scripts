@@ -1,13 +1,59 @@
 https://www.msys2.org/
 
-pacman -Suy
-pacman -S tar make cmake base-devel autoconf git man-db
-pacman -S mingw-w64-ucrt-x86_64-gcc
+Needed: (prefer UCRT)
+# Update the package database first
+pacman -Syu
+
+pacman -S --needed tar base-devel autoconf git man-db
+pacman -S --needed mingw-w64-ucrt-x86_64-toolchain
+
+# Core Build Tools UCRT  
+pacman -S --needed \
+  mingw-w64-ucrt-x86_64-gcc \
+  mingw-w64-ucrt-x86_64-gdb \
+  mingw-w64-ucrt-x86_64-make \
+  mingw-w64-ucrt-x86_64-cmake \
+  mingw-w64-ucrt-x86_64-ninja
+
+
+Optional:
 pacman -S mingw-w64-x86_64-toolchain
 pacman -S mingw-w64-clang-x86_64-toolchain
+
+Cleanup:
 pacman -Qm
 paccache -r
 
+--------------------------------------------------------------------
+# Python & Scientific Stack UCRT
+# Install Python and common tools
+
+pacman -S --needed \
+  mingw-w64-ucrt-x86_64-python \
+  mingw-w64-ucrt-x86_64-python-pip \
+  mingw-w64-ucrt-x86_64-python-setuptools \
+  mingw-w64-ucrt-x86_64-python-pexpect \
+  mingw-w64-ucrt-x86_64-python-setuptools-git \
+  mingw-w64-ucrt-x86_64-python-jinja \
+  mingw-w64-ucrt-x86_64-python-ipython \
+  mingw-w64-ucrt-x86_64-cython \
+  mingw-w64-ucrt-x86_64-python-spyder \
+  mingw-w64-ucrt-x86_64-python-numpy \
+  mingw-w64-ucrt-x86_64-python-scipy \
+  mingw-w64-ucrt-x86_64-python-matplotlib \
+  mingw-w64-ucrt-x86_64-python-seaborn \
+  mingw-w64-ucrt-x86_64-python-pandas \
+  mingw-w64-ucrt-x86_64-python-jupyter_notebook \
+  mingw-w64-ucrt-x86_64-python-pylint \
+  mingw-w64-ucrt-x86_64-python-autopep8 \
+  mingw-w64-ucrt-x86_64-python-paramiko \
+  mingw-w64-ucrt-x86_64-python-pyserial \
+  mingw-w64-ucrt-x86_64-python-pyvisa \
+  mingw-w64-ucrt-x86_64-python-build \
+  mingw-w64-ucrt-x86_64-python-installer \
+  mingw-w64-ucrt-x86_64-python-packaging \
+  mingw-w64-ucrt-x86_64-python-west \
+  mingw-w64-ucrt-x86_64-python-scikit-learn
 
 
 
@@ -24,8 +70,10 @@ Click Environment Variables
 
 In the System variables section add a new entry to PATH/ Path.
 
-Add the following this line:
+Add the following this line(prefer UCRT):
+C:\msys64\ucrt64\bin
 
+(not needed)
 C:\msys64\mingw64\bin
 
 Note: The path may vary according to where you have installed MSYS2

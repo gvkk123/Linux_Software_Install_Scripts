@@ -43,3 +43,6 @@ sudo dpkg-reconfigure unattended-upgrades
 # Add Normal user to dialout group for accessing serial ports as user instead of root:
 sudo adduser $(whoami) dialout
 
+# Android tools:
+sudo apt install adb fastboot uuu scrcpy android-sdk-platform-tools
+
