@@ -46,3 +46,20 @@ sudo adduser $(whoami) dialout
 # Android tools:
 sudo apt install adb fastboot uuu scrcpy android-sdk-platform-tools
 
+# Add this line to GRUB to maintain common serial naming for network interface devices:
+sudo nano /etc/default/grub
+GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
+sudo update-grub
+
+# To change the shell from bash to zsh use this command:
+echo $SHELL
+sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting
+chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
+touch ~/.zsh_history
+sudo touch /root/.zsh_history
+
+copy .zshrc & .zsh_history files in /home/USER/ & /root/
+zshrc for kali_linux can be imported and used in other distros:
+wget https://gitlab.com/kalilinux/packages/kali-defaults/-/raw/kali/master/etc/skel/.zshrc?inline=false -O ~/.zshrc
+sudo cp ~/.zshrc /root/.zshrc
