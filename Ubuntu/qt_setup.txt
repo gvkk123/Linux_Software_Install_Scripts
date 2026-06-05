@@ -6,3 +6,7 @@ sudo apt install qtcreator
 
 
 sudo /sbin/ldconfig -v
+
+https://doc.qt.io/qt-6/linux.html
+https://doc.qt.io/qt-6/linux-requirements.html
+https://doc.qt.io/qt-6/linux-alternative-installers.html
