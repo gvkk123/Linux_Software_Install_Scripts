@@ -53,7 +53,12 @@ pacman -S --needed \
   mingw-w64-ucrt-x86_64-python-installer \
   mingw-w64-ucrt-x86_64-python-packaging \
   mingw-w64-ucrt-x86_64-python-west \
-  mingw-w64-ucrt-x86_64-python-scikit-learn
+  mingw-w64-ucrt-x86_64-python-scikit-learn \
+  mingw-w64-ucrt-x86_64-python-pyqt6 \
+  mingw-w64-ucrt-x86_64-python-pyqt6-sip \
+  mingw-w64-ucrt-x86_64-qt6-charts \
+  mingw-w64-ucrt-x86_64-qt-creator \
+  mingw-w64-x86_64-python-pyqtgraph
 
 
 
